@@ -1,5 +1,4 @@
 import { Type } from "@google/genai";
-import caloriesCalculator from "./caloriesCalculator.js";
 
 export default {
     functionDeclarations: [
@@ -21,6 +20,20 @@ export default {
                     }
                 },
 
+            }
+        },
+        {
+            name: "getWeather",
+            description: "Find weather data for a particular place",
+            parameters: {
+                type: Type.OBJECT,
+                properties: {
+                    place: {
+                        type: Type.STRING,
+                        description: "The name of the place for which the weather is required",
+                    },
+                },
+                required: ["place"]
             }
         }
     ]

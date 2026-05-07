@@ -2,11 +2,11 @@ import { GoogleGenAI } from "@google/genai";
 
 const apiKey = process.env.GEMINI_API_KEY!;
 
-const ai = new GoogleGenAI({apiKey});
+const ai = new GoogleGenAI({ apiKey });
 
-import toolDeclaration from "./toolDeclaration.js";
+import toolDeclarations from "./toolDeclaration.js";
 import caloriesCalculator from "./caloriesCalculator.js";
-import { maxHeaderSize } from "node:http";
+import { getWeather } from "./getWeather.js";
 
 async function main() {
     const query = process.argv.slice(2).join(" ");
@@ -16,20 +16,30 @@ async function main() {
         model: "gemini-3.1-flash-lite-preview",
         contents: query,
         config: {
-            tools: [toolDeclaration]
+            tools: [toolDeclarations]
         }
     });
 
     if (response.functionCalls && response.functionCalls.length > 0) {
 
-        const thoughtSignature = response.candidates![0]!.content!.parts![0]!.thoughtSignature as any;
-        const args = response.candidates![0]!.content!.parts![0]!;
+        const requiredResponse = response.candidates![0]!.content!.parts![0]!;
+        const args = requiredResponse.functionCall!.args!;
+        const thoughtSignature = requiredResponse.thoughtSignature!;
+        const functionName = requiredResponse.functionCall!.name!;
 
-        const deficitPercentage = args.functionCall!.args!.deficitPercentage! as number;
-        const maintenanceCalories = args.functionCall!.args!.maintenanceCalories! as number;
-        const result = caloriesCalculator(maintenanceCalories, deficitPercentage);
+        let err: Error | null = null;
+        let result: any = null;
+
+        try {
+            result = functionName == "getWeather" ? await getWeather(args.place as string) : caloriesCalculator(args.maintenanceCalories as number, args.deficitPercentage as number);
+        }
+        catch (error) {
+            err = error as Error;
+        }
+
+        console.log(result.days[0])
+
         
-
         const finalResponse = await ai.models.generateContent({
             model: "gemini-3.1-flash-lite-preview",
             contents: [
@@ -40,12 +50,13 @@ async function main() {
                         name: response.functionCalls[0]!.name!,
                         response: {
                             output: result,
+                            error: err
                         }
                     }
                 }]}
             ],
             config: {
-                tools: [toolDeclaration]
+                tools: [toolDeclarations]
             }
         });
 
