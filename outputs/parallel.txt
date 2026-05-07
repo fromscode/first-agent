@@ -1,0 +1,6 @@
+weather function called with place San Francisco
+weather function called with place Los Angeles
+San Francisco: Partially cloudy, 12°C–19°C.
+Los Angeles: Clear and partially cloudy, 15°C–25°C.
+Both cities are pleasant tomorrow.
+Midday flights offer the best visibility and warmth.
