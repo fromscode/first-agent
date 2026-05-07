@@ -37,8 +37,6 @@ async function main() {
             err = error as Error;
         }
 
-        console.log(result.days[0])
-
         
         const finalResponse = await ai.models.generateContent({
             model: "gemini-3.1-flash-lite-preview",
@@ -60,7 +58,7 @@ async function main() {
             }
         });
 
-        console.log(`Agent Response: ${finalResponse.text}`)
+        console.log(finalResponse.text)
     }
     else {
         console.log(response.text);
