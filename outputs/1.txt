@@ -1,0 +1,25 @@
+npm run dev If my current maintenance calories are 2500, and I need to loose 15% weight by the end of this year, how many calories would I need to intake everyday?  
+
+> first-agent@1.0.0 dev
+> tsx --env-file=.env src/index.ts If my current maintenance calories are 2500 and I need to loose 15% weight by the end of this year how many calories would I need to intake everyday?
+
+{
+  functionCall: {
+    name: 'caloriesCalculator',
+    args: { maintenanceCalories: 2500, deficitPercentage: 15 },
+    id: 'IPi36Y9M'
+  },
+  thoughtSignature: 'EjQKMgEMOdbHck1/FDJNd7YihDXM1LPfLfuKnGk86koDpD9SM11RpXsZTwE1UZ6up9g8N+mt'
+}
+Executing calories calculator with maintenance of 2500 and deficit of 15 %
+Result : 2125
+Agent Response: To lose weight, you need to create a caloric deficit. Based on your maintenance calories of 2500 and a 15% deficit, your daily intake should be **2125 calories**.
+
+***
+
+### Important Considerations for Your Goal:
+
+*   **Weight Loss vs. Caloric Deficit:** A 15% caloric deficit is a healthy and sustainable way to lose weight. However, please note that a **caloric deficit** (eating 2125 calories) is not the same as losing **15% of your total body weight**.
+*   **The Math of Weight Loss:** To lose a specific percentage of your body weight, you need to calculate the total number of calories you need to burn. Generally, there are about 3,500 calories in 1 pound of body fat.
+*   **Safety First:** If you are planning a significant weight loss, it is highly recommended that you speak with a healthcare provider or a registered dietitian. They can help you create a plan that ensures you are losing weight in a healthy way while maintaining proper nutrition.
+*   **Adjustments:** As you lose weight, your maintenance calories will naturally decrease. You will likely need to recalculate your maintenance calories and your target intake every few weeks to keep progressing.
