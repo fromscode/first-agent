@@ -1,0 +1,13 @@
+Rome.
+
+calorie calculator called
+
+Consume 2250 calories daily.
+
+weather function called
+
+The weather in Rome tomorrow, May 8th, is expected to be overcast with a high probability of rain (up to 84%) throughout the day. 
+
+
+
+Since it will be raining, I recommend going to the gym early in the morning, around 7:00 AM or 8:00 AM, before the heaviest rain starts.

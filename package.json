@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx --env-file=.env src/index.ts",
-    "weather" : "tsx --env-file=.env src/getWeather.ts"
+    "weather": "tsx --env-file=.env src/getWeather.ts",
+    "queries": "tsx --env-file=.env src/history.ts"
   },
   "repository": {
     "type": "git",
