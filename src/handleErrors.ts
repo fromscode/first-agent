@@ -1,4 +1,4 @@
-// The goal here is to maintain a history of chats, so that the ai remembers what was the last prompt
+// The goal here is to handle errors of function calls
 import {
   GoogleGenAI,
   type Content,

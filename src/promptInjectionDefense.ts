@@ -1,4 +1,4 @@
-// The goal here is to maintain a history of chats, so that the ai remembers what was the last prompt
+// The goal here is to prevent against prompt injection
 import {
   GoogleGenAI,
   type Content,
