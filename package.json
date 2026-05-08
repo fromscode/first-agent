@@ -10,7 +10,8 @@
     "queries": "tsx --env-file=.env src/history.ts",
     "parallel": "tsx --env-file=.env src/parallelCalls.ts",
     "prompt:injection": "tsx --env-file=.env src/promptInjectionDefense.ts",
-    "prompt:context": "tsx --env-file=.env src/lackOfContext.ts"
+    "prompt:context": "tsx --env-file=.env src/lackOfContext.ts",
+    "prompt:errors": "tsx --env-file=.env src/handleErrors.ts"
   },
   "repository": {
     "type": "git",
