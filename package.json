@@ -9,7 +9,8 @@
     "weather": "tsx --env-file=.env src/getWeather.ts",
     "queries": "tsx --env-file=.env src/history.ts",
     "parallel": "tsx --env-file=.env src/parallelCalls.ts",
-    "prompt:injection": "tsx --env-file=.env src/promptInjectionDefense.ts"
+    "prompt:injection": "tsx --env-file=.env src/promptInjectionDefense.ts",
+    "prompt:context": "tsx --env-file=.env src/lackOfContext.ts"
   },
   "repository": {
     "type": "git",
